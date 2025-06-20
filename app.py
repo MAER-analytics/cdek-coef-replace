@@ -8,7 +8,7 @@ uploaded_file = st.file_uploader("Загрузите Excel-файл", type=["xls
 
 if uploaded_file:
     try:
-        wb = openpyxl.load_workbook(uploaded_file)
+        wb = openpyxl.load_workbook(uploaded_file, data_only=False, keep_links=False)
         # Пытаемся найти лист с именем, содержащим "СДЭК"
         sheet_name = next((name for name in wb.sheetnames if "СДЭК" in name.upper()), None)
 
